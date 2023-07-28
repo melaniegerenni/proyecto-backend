@@ -4,6 +4,7 @@ import viewsRouter from "./routers/views.router.js";
 import chatRouter from "./routers/chat.router.js";
 import sessionRouter from "./routers/sessions.router.js";
 import mockRouter from "./routers/mock.router.js";
+import testRouter from "./routers/test.router.js";
 import { passportCall, handlePolicies } from "./utils.js";
 import errorHandler from "./middlewares/error.middleware.js"
 
@@ -15,6 +16,7 @@ const run = (socketServer, app) => {
 
   app.use("/chat", passportCall('current'), handlePolicies(["USER"]), chatRouter(socketServer));
   app.use("/mockingproducts", mockRouter)
+  app.use("/loggerTest", testRouter)
   app.use("/", passportCall('current'), viewsRouter(socketServer));
   
 };

@@ -46,10 +46,7 @@ const createLogger = (env) => {
       transports: [
         new winston.transports.Console({
           level: "debug",
-          format: winston.format.combine(
-            winston.format.colorize(),
-            winston.format.simple()
-          ),
+          format: winston.format.simple()
         }),
       ],
     });
